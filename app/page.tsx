@@ -1,8 +1,9 @@
+import { Button } from "./_components/ui/button";
 
 export default function Home() {
   return (
     <div className="w-full h-screen flex  justify-center items-center">
-    Goiaba
+    <Button>Enviar</Button>
     </div>
   );
 }
