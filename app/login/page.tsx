@@ -6,10 +6,10 @@ import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 const Login = async () => {
-    const  { userId} = await auth();
-    if(userId){
-        return redirect("/");
-    }
+  const { userId } = await auth();
+  if (userId) {
+    return redirect("/");
+  }
   return (
     <div className="grid h-full grid-cols-2">
       {/* Formulário de Login */}
