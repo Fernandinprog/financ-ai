@@ -1,2 +1,6 @@
-npx lint-staged
-
+{
+  "*.ts?(x)": [
+    "eslint --fix",
+    "prettier write"
+  ]
+}

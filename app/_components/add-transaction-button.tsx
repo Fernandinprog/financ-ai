@@ -39,6 +39,7 @@ import {
 import {
   TRANSACTION_CATEGORY_OPTIONS,
   TRANSACTION_PAYMENT_METHOD_OPTIONS,
+  TRANSACTION_PAYMENTE_TYPE_OPTIONS,
 } from "../_constants/transactions";
 import { DatePicker } from "./ui/date-picker";
 
@@ -146,7 +147,7 @@ const AddtransactionButton = () => {
                       </SelectTrigger>
                     </FormControl>
                     <SelectContent>
-                      {TRANSACTION_CATEGORY_OPTIONS.map((option) => (
+                      {TRANSACTION_PAYMENTE_TYPE_OPTIONS.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
@@ -159,7 +160,7 @@ const AddtransactionButton = () => {
             />
             <FormField
               control={form.control}
-              name="type"
+              name="category"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Categoria</FormLabel>
@@ -186,7 +187,7 @@ const AddtransactionButton = () => {
             />
             <FormField
               control={form.control}
-              name="type"
+              name="paymentMethod"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Metodo de pagamento</FormLabel>
@@ -222,16 +223,16 @@ const AddtransactionButton = () => {
                 </FormItem>
               )}
             />
-          </form>
 
-          <DialogFooter>
-            <DialogClose asChild>
-              <Button type="button" variant={"outline"}>
-                Cancelar
-              </Button>
-            </DialogClose>
-            <Button type="submit">Adicionar</Button>
-          </DialogFooter>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button type="button" variant={"outline"}>
+                  Cancelar
+                </Button>
+              </DialogClose>
+              <Button type="submit">Adicionar</Button>
+            </DialogFooter>
+          </form>
         </Form>
       </DialogContent>
     </Dialog>
