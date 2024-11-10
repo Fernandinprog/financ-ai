@@ -11,7 +11,7 @@ import {
 } from "@/app/_components/ui/chart";
 import { TransactionType } from "@prisma/client";
 import { PiggyBankIcon, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
-import { TransactionPercentagePerType } from "@/app/_data/get-dashboard/type";
+import { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
 import PercentegeItem from "./percentage-item";
 
 const chartConfig = {
