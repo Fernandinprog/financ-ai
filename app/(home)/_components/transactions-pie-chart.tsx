@@ -13,7 +13,7 @@ import { TransactionType } from "@prisma/client";
 import { PiggyBankIcon, TrendingDownIcon, TrendingUpIcon } from "lucide-react";
 import { TransactionPercentagePerType } from "@/app/_data/get-dashboard/types";
 import PercentegeItem from "./percentage-item";
-
+//aqui escolhe as cores do grafico //
 const chartConfig = {
   [TransactionType.INVESTMENT]: {
     label: "Investido",
