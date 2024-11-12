@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs/server";
+import { auth, clerkClient } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import Navbar from "../_components/navbar";
 import SummaryCards from "./_components/summary-cards";
@@ -22,6 +22,7 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
   if (!userId) {
     redirect("/login"); // aqui te redireciona pra pagina de login se não estiver logado e tenta acessar a pagina por url
   }
+  const user = await clerkClient.users.getUser(userId);
   const monthIsInvalid = !month || !isMatch(month, "MM");
   if (monthIsInvalid) {
     redirect(`/?month=${new Date().getMonth() + 1}`); // aqui pega o mês atual e ja coloca na pagina
@@ -35,7 +36,12 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
         <div className="flex justify-between">
           <h1 className="text-2xl font-bold">Dashboard</h1>
           <div className="flex items-center gap-3">
-            <AireportButton month={month} hasPremiumPlan={false} />
+            <AireportButton
+              month={month}
+              hasPremiumPlan={
+                user.publicMetadata.subscriptionPlan === "premium"
+              }
+            />
             <TimeSelect />
           </div>
         </div>
@@ -59,5 +65,4 @@ const Home = async ({ searchParams: { month } }: HomeProps) => {
     </>
   );
 };
-
 export default Home;
