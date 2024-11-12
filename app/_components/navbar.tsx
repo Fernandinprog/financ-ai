@@ -10,7 +10,16 @@ const Navbar = () => {
     <nav className="flex justify-between border-b border-solid p-4 px-8">
       <div className="flex items-center gap-10">
         <Image src="/logo.svg" width={40} height={30} alt="finance Ai" />
-        <Link href={"/"}>Dashboard</Link>
+        <Link
+          href={"/"}
+          className={
+            pathname === "/"
+              ? "font-bold text-primary"
+              : "text-muted-foreground"
+          }
+        >
+          Dashboard
+        </Link>
         <Link
           href={"/transactions"}
           className={
